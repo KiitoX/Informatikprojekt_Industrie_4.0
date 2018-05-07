@@ -80,11 +80,11 @@ h5, h6 {
 }
 
 header {
-	padding: var(--small-spacing) var(--side-spacing);
+	padding: 0 var(--side-spacing);
 }
 
 header #banner {
-	width: 480px;
+	height: 80px;
 }
 
 nav {
