@@ -4,6 +4,8 @@
 
 	--page-width: 1200px;
 	--side-spacing: calc((100vw - var(--page-width)) / 2); /* half of ( 100% viewport-width - 600px ) */
+
+	--accent-color: lightblue;
 }
 
 html {
@@ -11,6 +13,7 @@ html {
 }
 
 body {
+	min-height: -moz-available;
 	min-height: -webkit-fill-available;
 	display: flex;
 	flex-direction: column;
@@ -43,6 +46,10 @@ h3, h4 {
 }
 h5, h6 {
 	font-size: 1.6em;
+}
+
+.hidden {
+	display: none !important;
 }
 
 .bold {
@@ -94,9 +101,13 @@ nav {
 	padding: 0 var(--side-spacing);
 
 	color: #000;
-	background-color: lightblue;
+	background-color: var(--accent-color);
 
 	box-shadow: 0 1px 0 rgba(12,13,14,0.1), 0 1px 3px rgba(12,13,14,0.1), 0 4px 20px rgba(12,13,14,0.035), 0 1px 1px rgba(12,13,14,0.025);
+}
+
+nav #cookie-notice :first-child {
+	margin-right: auto;
 }
 
 nav .link a {
@@ -127,6 +138,10 @@ footer {
 	background-color: #ccc;
 	
 	box-shadow: 0 -1px 0 rgba(12,13,14,0.1), 0 -1px 3px rgba(12,13,14,0.1), 0 -4px 20px rgba(12,13,14,0.035), 0 -1px 1px rgba(12,13,14,0.025);
+}
+
+footer #counter {
+	margin-left: auto;
 }
 
 footer #copyright {
