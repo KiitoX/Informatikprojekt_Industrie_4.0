@@ -29,15 +29,6 @@ hr {
 	margin: var(--medium-spacing) 0;
 }
 
-/*
-h1, h3, h5 {
-	font-weight: 500;
-	color: #000;
-}
-h2, h4, h6 {
-	font-weight: 300;
-}*/
-
 h1, h2 {
 	font-size: 2.2em;
 }
@@ -46,6 +37,15 @@ h3, h4 {
 }
 h5, h6 {
 	font-size: 1.6em;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 .hidden {
@@ -67,23 +67,10 @@ h5, h6 {
 	padding: var(--small-spacing) 0;
 }
 
-.link a {
-	text-decoration: none;
-	color: inherit;
-}
-
-.link a:hover {
-	text-decoration: underline;
-}
-
 .row {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-}
-.row > * > * {
-	margin: var(--small-spacing) 0;
-	padding: 0 var(--small-spacing);
 }
 
 header {
@@ -98,16 +85,30 @@ nav {
 	position: sticky;
 	top: 0;
 
-	padding: 0 var(--side-spacing);
-
 	color: #000;
 	background-color: var(--accent-color);
 
 	box-shadow: 0 1px 0 rgba(12,13,14,0.1), 0 1px 3px rgba(12,13,14,0.1), 0 4px 20px rgba(12,13,14,0.035), 0 1px 1px rgba(12,13,14,0.025);
 }
 
-nav #cookie-notice :first-child {
+nav .row {
+	padding: 0 var(--side-spacing);
+}
+
+nav #cookie-notice {
+	color: #ccc;
+	background-color: #000;
+
+	font-size: 0.8em;
+}
+
+nav #cookie-notice a {
+	text-decoration: underline;
+}
+
+nav #cookie-notice > p {
 	margin-right: auto;
+	padding: var(--small-spacing);
 }
 
 nav .link a {
@@ -138,6 +139,12 @@ footer {
 	background-color: #ccc;
 	
 	box-shadow: 0 -1px 0 rgba(12,13,14,0.1), 0 -1px 3px rgba(12,13,14,0.1), 0 -4px 20px rgba(12,13,14,0.035), 0 -1px 1px rgba(12,13,14,0.025);
+}
+
+footer p,
+footer a {
+	margin: var(--small-spacing) 0;
+	padding: 0 var(--small-spacing);
 }
 
 footer #counter {
