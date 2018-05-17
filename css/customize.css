@@ -1,0 +1,113 @@
+main section {
+	flex: 1;
+	align-self: flex-start;
+}
+
+#preview h1 {
+	text-align: center;
+}
+#preview img {
+	height: 80vh;
+	display: block;
+	margin: 0 auto;
+}
+
+#selection input[type="radio"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	
+	cursor: pointer;
+
+	width: 32px;
+	height: 32px;
+
+	border: 2px solid;
+	border-radius: 8px;
+}
+
+#selection input[type="radio"]:checked {
+	border-radius: 16px;
+}
+
+#selection input[type="radio"][name="body"] {
+	height: 64px;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#selection #b0 {
+	background-image: url("../maids/body_0/blonde|blue|body_0.png");
+}
+#selection #b1 {
+	background-image: url("../maids/body_1/blonde|blue|body_1.png");
+}
+#selection #b2 {
+	background-image: url("../maids/body_2/blonde|blue|body_2.png");
+}
+#selection #b3 {
+	background-image: url("../maids/body_3/blonde|blue|body_3.png");
+}
+#selection #b4 {
+	background-image: url("../maids/body_4/blonde|blue|body_4.png");
+}
+#selection #b5 {
+	background-image: url("../maids/body_5/blonde|blue|body_5.png");
+}
+#selection #b6 {
+	background-image: url("../maids/body_6/blonde|blue|body_6.png");
+}
+#selection #b7 {
+	background-image: url("../maids/body_7/blonde|blue|body_7.png");
+}
+#selection #b8 {
+	background-image: url("../maids/body_8/blonde|blue|body_8.png");
+}
+
+#selection #h0 { /* blonde */
+	background-color: #ffd572;
+}
+#selection #h1 { /* brunette */
+	background-color: #a05434;
+}
+#selection #h2 { /* dark */
+	background-color: #1f1f1f;
+}
+#selection #h3 { /* ginger */
+	background-color: #e36e52;
+}
+#selection #h4 { /* lightblue */
+	background-color: #a7d6f1;
+}
+#selection #h5 { /* pink */
+	background-color: #fa9eba;
+}
+#selection #h6 { /* purple */
+	background-color: #cf99ff;
+}
+#selection #h7 { /* straw */
+	background-color: #fff5b8;
+}
+#selection #h8 { /* white */
+	background-color: #e0e0e0;
+}
+
+#selection #e0 { /* blue */
+	background-color: #367bfa;
+}
+#selection #e1 { /* brown */
+	background-color: #a05434;
+}
+#selection #e2 { /* green */
+	background-color: #96d255;
+}
+#selection #e3 { /* lightblue */
+	background-color: #5fbdfb;
+}
+#selection #e4 { /* purple */
+	background-color: #ad5ffb;
+}
+#selection #e5 { /* dark */
+	background-color: #1f1f1f;
+}

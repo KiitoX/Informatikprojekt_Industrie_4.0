@@ -1,0 +1,10 @@
+haircolor:
+    blonde      #base
+    brunette    #-24,-48,-48
+    dark        #0,-100,-85
+    ginger      #-20,-8,-20
+    lightblue   #160,-25
+    pink        #-60,-8
+    purple      #-130,35
+    straw       #10,10,30
+    white       #0,-100,40 

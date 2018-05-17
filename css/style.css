@@ -3,9 +3,24 @@
 	--medium-spacing: 30px;
 
 	--page-width: 1200px;
-	--side-spacing: calc((100vw - var(--page-width)) / 2); /* half of ( 100% viewport-width - 600px ) */
+	/* half of ( 100% viewport-width - desired-page-width ) */
+	--side-spacing: calc((100vw - var(--page-width)) / 2);
 
 	--accent-color: lightblue;
+}
+
+@media screen and (max-width: 1200px) {
+	/* --page-width */
+	body {
+		--side-spacing: 0px;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	header #banner {
+		width: 100vw;
+		height: initial !important;
+	}
 }
 
 html {
@@ -29,14 +44,27 @@ hr {
 	margin: var(--medium-spacing) 0;
 }
 
-h1, h2 {
+h1, h2, h3, h4, h5, h6 {
+	margin-bottom: 0.8em;
+}
+
+h1 {
 	font-size: 2.2em;
 }
-h3, h4 {
+h2 {
+	font-size: 2em;
+}
+h3 {
 	font-size: 1.8em;
 }
-h5, h6 {
+h4 {
 	font-size: 1.6em;
+}
+h5 {
+	font-size: 1.4em;
+}
+h6 {
+	font-size: 1.2em;
 }
 
 a {
@@ -58,9 +86,6 @@ a:hover {
 
 .padded {
 	margin: 0.6em 0;
-}
-.padded-bottom {
-	margin-bottom: 0.8em;
 }
 
 .link {

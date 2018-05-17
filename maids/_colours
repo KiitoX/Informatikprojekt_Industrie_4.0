@@ -1,0 +1,20 @@
+haircolor|eyecolor|bodyid.png
+
+haircolor:
+    blonde      #
+    brunette    #
+    dark        #
+    ginger      #
+    lightblue   #
+    pink        #
+    purple      #
+    straw       #
+    white       #
+
+eyecolor:
+    blue        #
+    brown       #
+    dark        #
+    green       #
+    lightblue   #
+    purple      #
