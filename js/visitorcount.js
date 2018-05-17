@@ -31,6 +31,9 @@ let cookieConsent = function() {
 		// show cookie message
 		document.querySelector("#cookie-notice").classList.remove("hidden");
 		
+		// get count preemptively
+		showCounter();
+		
 		let oninteract = function() {
 			// hide cookie message
 			document.querySelector("#cookie-notice").classList.add("hidden");
