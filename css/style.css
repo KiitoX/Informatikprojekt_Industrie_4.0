@@ -155,6 +155,8 @@ main {
 
 section {
 	padding: var(--medium-spacing);
+
+	text-align: justify;
 }
 
 footer {
