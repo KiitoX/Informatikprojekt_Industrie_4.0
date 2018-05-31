@@ -38,7 +38,7 @@
 		<main>
 			<section>			
 				<div class="dropdown">
-					<button onclick="myFunction()" class="dropbtn">Dropdown</button>
+					<button onclick="myFunction()" class="dropbtn" id="btn"><span><p>WIP</p></span></button>
 					<div id="myDropdown" class="dropdown-content">
 					
 						<?php	//Dropdown Menu erstellen
@@ -47,11 +47,17 @@
 									if ($method === "GET" || $method === "POST") {
 										$sql = "SELECT * FROM `t_robots`";
 										if ($result = $mysqli->query($sql)) {
-											$row = $result->fetch_array();									
+											$row = $result->fetch_array();
+											$robots = array('Roboter');
 											while ($row){											
-											print("<a href=\"#\">".$row["robot"]."</a>");
+											
+											array_push($robots, $row["robot"]);
 											$row = $result->fetch_array();
 											}
+											
+											foreach($robots as $robot){
+												print("<a href=\"#\">".$robot."</a>");	
+											}	
 										}
 									}							
 						?>
@@ -67,7 +73,10 @@
 						
 					}	
 				?>-->
-				
+		
+		
+		
+		<div class="calendar">		
 				<table border=1 id='calendar'>
 		<tr style='visibility:collapse;' hidden>
 			<td colspan=7 id='date_memory'>---</td>
@@ -159,10 +168,55 @@
 
 	<br />
 	<br />
+	<!--
 	<form id='myform'>
 		<input id='datum' size=30/>
-	</form>
-			
+	</form>-->
+	</div>
+	<div class="renting">
+	
+		<form>
+			<label for="robotRent">Roboter:</label>
+			<select name="robotRent">
+					<?php	//Dropdown Menu erstellen
+							$method = $_SERVER["REQUEST_METHOD"];
+							$mysqli = new mysqli("localhost", "root", "", "ikusaki");
+									if ($method === "GET" || $method === "POST") {
+										$sql = "SELECT * FROM `t_robots`";
+										if ($result = $mysqli->query($sql)) {
+											$row = $result->fetch_array();
+											$robots = array();
+											while ($row){											
+											
+											array_push($robots, $row["robot"]);
+											$row = $result->fetch_array();
+											}
+											
+											foreach($robots as $robot){
+												print("<option value=\"".$robot."\">".$robot."</option>");	
+											}	
+										}
+									}							
+						?>
+				
+			</select>
+			<br>
+			<br>
+			<label for="startDate">Anfangs Datum:</label>
+				<input id="startDate" name="startDate">
+			<br>
+			<br>
+			<label for="endDate">End Datum:</label>
+				<input id="endDate" name="endDate">
+			<br>
+			<br>
+			<button type="submit">Absenden</button>
+		
+		</form>
+	
+	</div>
+
+	
 			</section>
 		</main>
 

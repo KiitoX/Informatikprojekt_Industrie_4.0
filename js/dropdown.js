@@ -16,5 +16,6 @@ window.onclick = function(event) {
         openDropdown.classList.remove('show');
       }
     }
+	//document.querySelector("#btn span").textContent = "DEBUG";
   }
 }
