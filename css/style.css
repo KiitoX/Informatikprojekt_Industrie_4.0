@@ -16,6 +16,16 @@
 	}
 }
 
+@media screen and (max-width: 600px) {
+	.right {
+		float: unset !important;
+		width: 100% !important;
+	}
+	.expand {
+		padding-left: unset !important;
+	}
+}
+
 html {
 	min-height: 100%
 }
@@ -94,14 +104,19 @@ a:hover {
 	margin: 0.6em 0;
 }
 
-.right {
-	float: right;
-	width: 40vw;
-	padding-left: 16px;
-}
-
 .link {
 	padding: var(--small-spacing) 0;
+}
+
+.right {
+	float: right;
+	width: 320px;
+}
+
+.expand {
+	width: 40vw;
+	max-width: 500px;
+	padding-left: 16px;
 }
 
 .row {
