@@ -98,8 +98,16 @@
 }
 
 .split #news {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: var(--small-spacing);
+
 	flex: 1;
 	padding-right: var(--medium-spacing);
+}
+
+.split #news > div img {
+	width: 100%;
 }
 
 .split #twitter {
