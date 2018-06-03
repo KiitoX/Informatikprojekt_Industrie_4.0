@@ -92,3 +92,16 @@
 #slide5 {
 	background-image: url("../img/headquarters.png");
 }
+
+.split {
+	display: flex;
+}
+
+.split #news {
+	flex: 1;
+	padding-right: var(--medium-spacing);
+}
+
+.split #twitter {
+	width: 380px;
+}
