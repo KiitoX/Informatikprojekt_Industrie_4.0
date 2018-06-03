@@ -39,8 +39,8 @@
 			<?php
 			$parts = $_SERVER["QUERY_STRING"];
 			parse_str($parts, $array);
-			print_r("DEBUG, PLEASE DELETE LATER: ");
-			print_r($array);
+			//print_r("DEBUG, PLEASE DELETE LATER: ");
+			//print_r($array);-->
 			$output = "";
 
 			if(array_key_exists("robotFree",$array)){
