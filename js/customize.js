@@ -43,7 +43,7 @@ let selectionChanged = function() {
 			}
 	});
 
-	img.src = `./maids/${body}/${hair}|${eyes}|${body}.png`;
+	img.src = `./maids/${body}/${hair}_${eyes}_${body}.png`;
 };
 
 let addHandler = function() {

@@ -42,18 +42,66 @@
 			print_r("DEBUG, PLEASE DELETE LATER: ");
 			print_r($array);
 			$output = "";
-			
-			
 
-
-			
 			if(array_key_exists("robotFree",$array)){
 				if(array_key_exists("date",$array)&& $array["date"] != ""){
 					$selectedDate = strtotime( $array["date"]);
 					$selectedDateDay = (date('z', $selectedDate) + 1);
 					print_r($selectedDateDay);
+								
+					$method = $_SERVER["REQUEST_METHOD"];
+						$mysqli = new mysqli("localhost", "root", "", "ikusaki");
+								if ($method === "GET" || $method === "POST") {
+									$sql = "SELECT * FROM `l_booking_robot` WHERE `F_robot` = ".$array["robotFree"];
+									if ($result = $mysqli->query($sql)) {
+										$row = $result->fetch_array();
+										$free = true;										
+										while ($row){
+											if($row["start_date"] <= $selectedDateDay && $row["end_date"] >= $selectedDateDay){
+												$free = false;
+											}
+											$row = $result->fetch_array();
+										}
+										if($free){
+											$output = "Der ausgewälte Termin ist noch nicht belegt";
+										}
+									}
+								}
 				} else {
 					$output = "Bitte wählen sie im Kalender ein gültiges Datum";
+				}
+			}
+			
+			if(array_key_exists("robotRent",$array)){
+				if(array_key_exists("startDate",$array) && $array["startDate"] != ""){
+					if(array_key_exists("endDate",$array) && $array["endDate"] != ""){
+						
+						$method = $_SERVER["REQUEST_METHOD"];
+						$mysqli = new mysqli("localhost", "root", "", "ikusaki");
+								if ($method === "GET" || $method === "POST") {
+									$sql = "SELECT * FROM `l_booking_robot` WHERE `F_robot` = ".$array["robotRent"];
+									if ($result = $mysqli->query($sql)) {
+										$row = $result->fetch_array();
+										$free = true;										
+										while ($row){
+											if($row["start_date"] <= $selectedDateDay && $row["end_date"] >= $selectedDateDay){
+												$free = false;
+											}
+											$row = $result->fetch_array();
+										}
+										if($free){
+											$output = "Der ausgewälte Termin ist noch nicht belegt";
+										}
+									}
+								}
+						
+						
+						
+					}else{
+							$output = "Bitte geben sie ein gültiges Datum in das End Datum Fenster ein";
+					}
+				}else{
+					$output = "Bitte geben sie ein gültiges Datum in das Start Datum Fenster ein";
 				}
 			}
 			?>
@@ -165,14 +213,15 @@
 										if ($result = $mysqli->query($sql)) {
 											$row = $result->fetch_array();
 											$robots = array();
-											while ($row){											
-											
+											$ids = array();
+											while ($row){																						
 											array_push($robots, $row["robot"]);
+											array_push($ids, $row["ID"]);
 											$row = $result->fetch_array();
 											}
 											
-											foreach($robots as $robot){
-												print("<option value=\"".$robot."\">".$robot."</option>");	
+											for($i = 0; $i < count($robots); $i++){
+												print("<option value=\"".$ids[$i]."\">".$robots[$i]."</option>");	
 											}	
 										}
 									}							
@@ -201,15 +250,16 @@
 										if ($result = $mysqli->query($sql)) {
 											$row = $result->fetch_array();
 											$robots = array();
+											$ids = array();
 											while ($row){											
-											
+											array_push($ids, $row["ID"]);
 											array_push($robots, $row["robot"]);
 											$row = $result->fetch_array();
 											}
 											
-											foreach($robots as $robot){
-												print("<option value=\"".$robot."\">".$robot."</option>");	
-											}	
+											for($i = 0; $i < count($robots); $i++){
+												print("<option value=\"".$ids[$i]."\">".$robots[$i]."</option>");	
+											}
 										}
 									}							
 						?>
