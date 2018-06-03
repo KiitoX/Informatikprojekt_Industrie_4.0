@@ -1,36 +1,80 @@
 let initSlideshow = function() {
 	let slideshow = document.querySelector(".slideshow");
 
-	let changeSlide = function (dir) {
+	/*
+	let container = document.querySelector(".slideshow .container");
+	container.addEventListener("transitionend", (evt) => {
+		console.log("swish");
+		//debugger;
+		
 		let container = document.querySelector(".slideshow .container");
-		let slides = Array.from(container.children);
-		let firstSlide = slides[0];
-		let lastSlide = slides[slides.length-1];
 		let activeSlide = document.querySelector(".slideshow .active");
-		let activeIndex = slides.indexOf(activeSlide);
-		let newIndex = activeIndex + dir;
+		let activeIndex = Array.from(container.children).indexOf(activeSlide);
+
+		let slideN = container.children.length;
+
+		let parity = (slideN) % 2;
 
 		container.classList.add("modifying");
 
-		if (newIndex == 0) {
-			newIndex = 1;
-			let pastTranslate = 15 - ((newIndex - dir) * 70);
-			container.removeChild(lastSlide);
-			container.insertBefore(lastSlide, firstSlide);
-			container.style.transform = "translateX("+ pastTranslate +"%)";
-		} else if (newIndex == slides.length - 1) {
-			newIndex = slides.length - 2;
-			let pastTranslate = 15 - ((newIndex - dir) * 70);
-			container.removeChild(firstSlide);
-			container.appendChild(firstSlide);
-			container.style.transform = "translateX("+ pastTranslate +"%)";
+		while (slideN - 2 * activeIndex < -parity) {
+			console.log(slideN - 2 * activeIndex, " > ", +parity);
+			// move from front to back
+			container.append(container.removeChild(container.firstElementChild));
+			activeIndex = Array.from(container.children).indexOf(activeSlide);
+		}
+		while (slideN - 2 * activeIndex > +parity) {
+			console.log(slideN - 2 * activeIndex, " < ", -parity);
+			// move from back to front
+			container.prepend(container.removeChild(container.lastElementChild));
+			activeIndex = Array.from(container.children).indexOf(activeSlide);
+		}
+
+		activeIndex = Array.from(container.children).indexOf(activeSlide);
+
+		let translateX = 15 - activeIndex * 70;
+		if (container.style.transform !== "translateX("+ translateX +"%)") {
+			container.style.transform = "translateX("+ translateX +"%)";
+		}
+
+		window.getComputedStyle();
+
+		container.classList.remove("modifying");
+	});*/
+
+	let changeSlide = function (dir) {
+		let container = document.querySelector(".slideshow .container");
+		let activeSlide = document.querySelector(".slideshow .active");
+		let activeIndex = Array.from(container.children).indexOf(activeSlide);
+		let newIndex = activeIndex + dir;
+	
+		let slideN = container.children.length;
+
+		let parity = slideN % 2;
+		
+		container.classList.add("modifying");
+
+		while (slideN - 2 * newIndex < parity) {
+			// move from front to back
+			container.append(container.removeChild(container.firstElementChild));
+			activeIndex = Array.from(container.children).indexOf(activeSlide);
+			newIndex = activeIndex + dir;
+		}
+		while (slideN - 2 * newIndex > parity) {
+			// move from back to front
+			container.prepend(container.removeChild(container.lastElementChild));
+			activeIndex = Array.from(container.children).indexOf(activeSlide);
+			newIndex = activeIndex + dir;
 		}
 	
+		let translateX = 15 - activeIndex * 70;
+		container.style.transform = "translateX("+ translateX +"%)";
+	
+		container.offsetHeight; // trigger reflow
+
 		container.classList.remove("modifying");
-
-		let slideWidth = activeSlide.width;
-
-		let newSlide = document.querySelector(".slideshow .container :nth-child("+ (newIndex + 1) +")");
+		
+		let newSlide = container.children.item(newIndex);
 
 		activeSlide.classList.remove("active");
 		newSlide.classList.add("active");
