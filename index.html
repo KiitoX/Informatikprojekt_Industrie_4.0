@@ -5,6 +5,7 @@
 		<title>Startseite - Ikusaki</title>
 		<link rel="stylesheet" type="text/css" href="css/reset.css" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
 
 		<script src="https://cdn.jsdelivr.net/npm/js-cookie/src/js.cookie.min.js"></script>
 	    <script>
@@ -33,8 +34,24 @@
 		</nav>
 
 		<main>
+			<section class="slideshow">
+				<div id="prev"></div>
+				<div id="next"></div>
+			
+				<div class="container">
+					<div id="slide1" class="img">
+						<p>Bild</p>
+					</div>
+					<div id="slide2" class="img active">
+						<p>Beschreibung</p>
+					</div>
+					<div id="slide3" class="img">
+						<p>Dings</p>
+					</div>
+				</div>
+			</section>
 			<section>
-				<!-- TODO: find a way to modularize (perhaps markdown) -->
+				<!-- news & twitter -->
 			</section>
 		</main>
 
