@@ -1,0 +1,86 @@
+.slideshow {
+	width: 100%;
+	height: 500px;
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 15fr 70fr 15fr;
+
+	overflow-x: hidden;
+
+	margin: calc(-1 * var(--small-spacing)) 0;
+	padding: 0;
+}
+
+.slideshow .container {
+	grid-row: 1/2;
+	grid-column: 1/4;
+
+	display: flex;
+
+	transition: transform 600ms ease 0s;
+	transform: translateX(-55%);
+}
+
+#prev, #next {
+	grid-row: 1/2;
+
+	z-index: 10;
+
+	cursor: pointer;
+
+	background-color: rgba(0, 0, 0, 0);
+	transition: background-color 100ms ease 0s;
+}
+#prev:hover, #next:hover {
+	background-color: rgba(0, 0, 0, 0.4);
+}
+#prev {
+	grid-column: 1/2;
+}
+#next {
+	grid-column: 3/4;
+}
+
+.slideshow .img > p {
+	width: 100%;
+
+	margin-top: auto;
+	padding: var(--small-spacing);
+
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.slideshow .img {
+	min-width: calc(0.7 * 1200px);
+	height: 100%;
+
+	display: flex;
+
+	background-size: cover;
+	background-position: center;
+	background-blend-mode: multiply;
+
+	transition: background-color 600ms ease 0s;
+}
+
+.slideshow .img.active {
+	box-shadow: 1px 0 0 rgba(12,13,14,0.1), 1px 0 3px rgba(12,13,14,0.1), 4px 0 20px rgba(12,13,14,0.035), 1px 0 1px rgba(12,13,14,0.025), -1px 0 0 rgba(12,13,14,0.1), -1px 0 3px rgba(12,13,14,0.1), -4px 0 20px rgba(12,13,14,0.035), -1px 0 1px rgba(12,13,14,0.025);
+}
+
+.slideshow .img:not(.active) {
+	background-color: #666;
+}
+
+.slideshow .img:not(.active) > p {
+	display: none;
+}
+
+#slide1 {
+	background-image: url("../img/headquarters.png");
+}
+#slide2 {
+	background-image: url("../img/factory.png");
+}
+#slide3 {
+	background-image: url("../img/headquarters.png");
+}
