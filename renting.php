@@ -37,8 +37,25 @@
 		<main>
 		
 			<?php
-			print($robotFree);
+			$parts = $_SERVER["QUERY_STRING"];
+			parse_str($parts, $array);
+			print_r("DEBUG, PLEASE DELETE LATER: ");
+			print_r($array);
+			$output = "";
 			
+			
+
+
+			
+			if(array_key_exists("robotFree",$array)){
+				if(array_key_exists("date",$array)&& $array["date"] != ""){
+					$selectedDate = strtotime( $array["date"]);
+					$selectedDateDay = (date('z', $selectedDate) + 1);
+					print_r($selectedDateDay);
+				} else {
+					$output = "Bitte wählen sie im Kalender ein gültiges Datum";
+				}
+			}
 			?>
 		
 		
@@ -211,9 +228,11 @@
 			<button type="submit">Absenden</button>
 		
 		</form>
-	
 	</div>
 
+		<?php
+			print_r("<br style=\"clear: left\"><br style=\"clear: left\"><p style=\"clear: left\">".$output."<p>");
+		?>
 	
 			</section>
 		</main>
