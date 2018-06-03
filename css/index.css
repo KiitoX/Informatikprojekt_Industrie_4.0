@@ -17,8 +17,10 @@
 
 	display: flex;
 
-	transition: transform 600ms ease 0s;
 	transform: translateX(-55%);
+}
+.slideshow .container:not(.modifying) {
+	transition: transform 600ms ease 0s;
 }
 
 #prev, #next {
@@ -82,5 +84,11 @@
 	background-image: url("../img/factory.png");
 }
 #slide3 {
+	background-image: url("../img/headquarters.png");
+}
+#slide4 {
+	background-image: url("../img/headquarters.png");
+}
+#slide5 {
 	background-image: url("../img/headquarters.png");
 }
