@@ -12,7 +12,7 @@ let counter = function(method, ondone) {
 			if (req.status === 200) {
 				ondone(req);
 			} else {
-				console.err(req.responseText);
+				console.error(req.responseText);
 			}
 		}
 	};
@@ -91,16 +91,3 @@ let showCounter = function() {
 };
 
 document.addEventListener("DOMContentLoaded", cookieConsent);
-
-
-
-
-
-
-
-
-
-
-
-
-
