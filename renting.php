@@ -12,7 +12,6 @@
 			window.Cookies || document.write('<script src="js/js.cookie.min.js"><\/script>')
 		</script>		
 		<script src="js/visitorcount.js" type="text/javascript"></script>
-		<script src="js/dropdown.js" type="text/javascript"></script>
 		<script src="js/calendar.js" type="text/javascript"></script>
 	</head>
 	<body>
@@ -36,46 +35,14 @@
 		</nav>
 
 		<main>
-			<section>			
-				<div class="dropdown">
-					<button onclick="myFunction()" class="dropbtn" id="btn"><span><p>WIP</p></span></button>
-					<div id="myDropdown" class="dropdown-content">
-					
-						<?php	//Dropdown Menu erstellen
-							$method = $_SERVER["REQUEST_METHOD"];
-							$mysqli = new mysqli("localhost", "root", "", "ikusaki");
-									if ($method === "GET" || $method === "POST") {
-										$sql = "SELECT * FROM `t_robots`";
-										if ($result = $mysqli->query($sql)) {
-											$row = $result->fetch_array();
-											$robots = array('Roboter');
-											while ($row){											
-											
-											array_push($robots, $row["robot"]);
-											$row = $result->fetch_array();
-											}
-											
-											foreach($robots as $robot){
-												print("<a href=\"#\">".$robot."</a>");	
-											}	
-										}
-									}							
-						?>
-					</div>
-				</div>						
-			</section>
-			<section>
+		
+			<?php
+			print($robotFree);
 			
-			<!--	<?php
-					$method = $SERVER["REQUEST_METHOD"];
-					$mysqli = new mysqli("localhost", "root", "", "ikusaki");
-					if($method === "GET" || $method === "POST") {
-						
-					}	
-				?>-->
+			?>
 		
 		
-		
+			<section>
 		<div class="calendar">		
 				<table border=1 id='calendar'>
 		<tr style='visibility:collapse;' hidden>
@@ -168,10 +135,41 @@
 
 	<br />
 	<br />
-	<!--
+	
 	<form id='myform'>
-		<input id='datum' size=30/>
-	</form>-->
+	
+		<label for="robotFree">Roboter:</label>
+			<select name="robotFree">
+					<?php	//Dropdown Menu erstellen
+							$method = $_SERVER["REQUEST_METHOD"];
+							$mysqli = new mysqli("localhost", "root", "", "ikusaki");
+									if ($method === "GET" || $method === "POST") {
+										$sql = "SELECT * FROM `t_robots`";
+										if ($result = $mysqli->query($sql)) {
+											$row = $result->fetch_array();
+											$robots = array();
+											while ($row){											
+											
+											array_push($robots, $row["robot"]);
+											$row = $result->fetch_array();
+											}
+											
+											foreach($robots as $robot){
+												print("<option value=\"".$robot."\">".$robot."</option>");	
+											}	
+										}
+									}							
+						?>
+				
+			</select>
+			<br>
+			<br>
+	
+		<input id='datum' name="date" size=30/>
+		<br>
+		<br>
+		<button type="submit">Ist dieser Termin noch frei für meine ausgewählt Maid?</button>
+	</form>
 	</div>
 	<div class="renting">
 	
