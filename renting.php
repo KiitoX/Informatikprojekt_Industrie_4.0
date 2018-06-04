@@ -75,22 +75,38 @@
 			if(array_key_exists("robotRent",$array)){
 				if(array_key_exists("startDate",$array) && $array["startDate"] != ""){
 					if(array_key_exists("endDate",$array) && $array["endDate"] != ""){
-						
+					
+					
+						$startDaySelect = strtotime( $array["startDate"]);
+						$startDate = (date('z', $startDaySelect) + 1);
+						$endDaySelect = strtotime( $array["endDate"]);
+						$endDate =(date('z', $endDaySelect) + 1);
+						$daten = array();
+						for( $i = $startDate; $i <= $endDate; $i++){
+							
+							array_push($daten, $i);
+							
+						}
 						$method = $_SERVER["REQUEST_METHOD"];
 						$mysqli = new mysqli("localhost", "root", "", "ikusaki");
 								if ($method === "GET" || $method === "POST") {
 									$sql = "SELECT * FROM `l_booking_robot` WHERE `F_robot` = ".$array["robotRent"];
 									if ($result = $mysqli->query($sql)) {
 										$row = $result->fetch_array();
-										$free = true;										
+										$free = true;
+										for( $i = 0; $i < count($daten); $i++){
 										while ($row){
-											if($row["start_date"] <= $selectedDateDay && $row["end_date"] >= $selectedDateDay){
+											if($row["start_date"] <= $daten[$i] && $row["end_date"] >= $daten[$i]){
 												$free = false;
 											}
 											$row = $result->fetch_array();
 										}
+										}
 										if($free){
-											$output = "Der ausgewälte Termin ist noch nicht belegt";
+											$output = "Ihr Termin wurde gebucht";
+											$sql = "INSERT INTO `l_booking_robot` (`ID`, `F_robot`, `F_user`, `start_date`, `end_date`) VALUES (NULL, '".$array["robotRent"]."', '1', '".$startDaySelect."', '".$endDaySelect."'";											
+										}else{
+											$output = "Der ausgewählte Termin ist belegt";
 										}
 									}
 								}
