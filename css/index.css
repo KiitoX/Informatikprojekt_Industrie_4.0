@@ -9,6 +9,8 @@
 
 	margin: calc(-1 * var(--small-spacing)) 0;
 	padding: 0;
+
+	--offset: 2;
 }
 
 .slideshow .container {
@@ -17,7 +19,8 @@
 
 	display: flex;
 
-	transform: translateX(-55%);
+	transform: translateX(
+		calc(15% - (var(--offset) * 70%)));
 	transition: transform 600ms ease 0s;
 }
 .slideshow .container.modifying {
@@ -33,20 +36,24 @@
 
 	cursor: pointer;
 
-	color: rgba(255, 255, 255, 1);
-	background-color: rgba(0, 0, 0, 0);
+	color: rgba(255, 255, 255, 0.4);
 	transition: color 100ms ease 0s;
 	transition: background-color 100ms ease 0s;
 }
 #prev:hover, #next:hover {
-	color: rgba(255, 255, 255, 0.4);
-	background-color: rgba(0, 0, 0, 0.4);
+	color: rgba(255, 255, 255, 1);
+	
+	background-color: rgba(0,0,0, 0.4);
 }
 #prev {
 	grid-column: 1/2;
+
+	background: linear-gradient(to left, rgba(0,0,0, 0.2), rgba(0,0,0, 0.6));
 }
 #next {
 	grid-column: 3/4;
+	
+	background: linear-gradient(to right, rgba(0,0,0, 0.2), rgba(0,0,0, 0.6));
 }
 
 .symbols {
@@ -59,13 +66,28 @@
 .icon {
 	margin: auto;
 
-	width: 128px;
-
 	color: currentColor;
 }
 
+@media screen and (min-width: 1200px) {
+	.slideshow .img {
+		min-width: calc(0.7 * 1200px);
+	}
+	.icon {
+		width: calc(0.15 * 1200px);
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.slideshow .img {
+		min-width: 70vw;
+	}
+	.icon {
+		width: 15vw;
+	}
+}
+
 .slideshow .img {
-	min-width: calc(0.7 * 1200px);
 	height: 100%;
 
 	display: flex;
@@ -82,6 +104,8 @@
 
 	margin-top: auto;
 	padding: var(--small-spacing);
+
+	text-align: start;
 
 	color: #FFF;
 	background-color: rgba(0, 0, 0, 0.6);

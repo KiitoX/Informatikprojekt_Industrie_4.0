@@ -27,8 +27,7 @@ let initSlideshow = function() {
 			newIndex = activeIndex + dir;
 		}
 	
-		let translateX = 15 - activeIndex * 70;
-		container.style.transform = "translateX("+ translateX +"%)";
+		slideshow.style.setProperty("--offset", activeIndex);
 	
 		container.offsetHeight; // trigger reflow
 
@@ -39,8 +38,8 @@ let initSlideshow = function() {
 		activeSlide.classList.remove("active");
 		newSlide.classList.add("active");
 
-		let translate = 15 - (newIndex * 70);
-		container.style.transform = "translateX("+ translate +"%)";
+		slideshow.style.setProperty("--offset", newIndex);
+		slideshow.style.set
 	};
 
 	let randomIndex = Math.floor(Math.random() * container.children.length);
