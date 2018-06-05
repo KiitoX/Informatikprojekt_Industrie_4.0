@@ -3,17 +3,8 @@
 	--medium-spacing: 2em;
 
 	--page-width: 1200px;
-	/* half of ( 100% viewport-width - desired-page-width ) */
-	--side-spacing: calc((100vw - var(--page-width)) / 2);
 
 	--accent-color: lightblue;
-}
-
-@media screen and (max-width: 1200px) {
-	/* --page-width */
-	body {
-		--side-spacing: 0px;
-	}
 }
 
 @media screen and (max-width: 600px) {
@@ -31,8 +22,7 @@ html {
 }
 
 body {
-	min-height: -moz-available;
-	min-height: -webkit-fill-available;
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 
@@ -125,8 +115,19 @@ a:hover {
 	align-items: center;
 }
 
+@media screen and (min-width: 1200px) {
+	header div,
+	nav .row,
+	main,
+	footer .row {
+		width: var(--page-width);
+		align-self: center;
+	}
+}
+
 header {
-	padding: 0 var(--side-spacing);
+	display: flex;
+	flex-direction: column;
 }
 
 header #banner {
@@ -142,17 +143,19 @@ nav {
 
 	z-index: 100;
 
+	display: flex;
+	flex-direction: column;
+
 	color: #000;
 	background-color: var(--accent-color);
 
 	box-shadow: 0 1px 0 rgba(12,13,14,0.1), 0 1px 3px rgba(12,13,14,0.1), 0 4px 20px rgba(12,13,14,0.035), 0 1px 1px rgba(12,13,14,0.025);
 }
 
-nav .row {
-	padding: 0 var(--side-spacing);
-}
-
 nav #cookie-notice {
+	display: flex;
+	flex-direction: column;
+
 	color: #ccc;
 	background-color: #000;
 
@@ -163,7 +166,7 @@ nav #cookie-notice a {
 	text-decoration: underline;
 }
 
-nav #cookie-notice > p {
+nav #cookie-notice .row > p {
 	margin-right: auto;
 	padding: var(--small-spacing);
 }
@@ -177,7 +180,6 @@ nav .selected a {
 }
 
 main {
-	margin: 0 var(--side-spacing);
 	padding: var(--small-spacing) 0;
 	flex-grow: 1;
 
@@ -192,7 +194,10 @@ section {
 }
 
 footer {
-	padding: var(--small-spacing) var(--side-spacing);
+	padding: var(--small-spacing) 0;
+	
+	display: flex;
+	flex-direction: column;
 
 	font-size: 0.8em;
 	background-color: #ccc;

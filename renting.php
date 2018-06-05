@@ -16,13 +16,17 @@
 	</head>
 	<body>
 		<header>
-			<img id="banner" src="img/logo.png" alt="Ikusaki Polytechnic Group" />
+			<div>
+				<img id="banner" src="img/logo.png" alt="Ikusaki Polytechnic Group" />
+			</div>
 		</header>
 		<nav>
-			<div id="cookie-notice" class="hidden row">
-				<p>Blaah blah, cookies are used for: visitor counting <a href="">learn more</a></p>
-				<div class="link"><a id="accept-cn" href="#">accept</a></div>
-				<div class="link"><a id="reject-cn" href="#">reject</a></div>
+			<div id="cookie-notice" class="hidden">
+				<div class="row">
+					<p>Blaah blah, cookies are used for: visitor counting <a href="">learn more</a></p>
+					<div class="link"><a id="accept-cn" href="#">accept</a></div>
+					<div class="link"><a id="reject-cn" href="#">reject</a></div>
+				</div>
 			</div>
 			<div class="row">
 				<div class="link"><a href="index.html">Startseite</a></div>
