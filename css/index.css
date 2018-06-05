@@ -25,16 +25,21 @@
 }
 
 #prev, #next {
+	display: flex;
+
 	grid-row: 1/2;
 
 	z-index: 10;
 
 	cursor: pointer;
 
+	color: rgba(255, 255, 255, 1);
 	background-color: rgba(0, 0, 0, 0);
+	transition: color 100ms ease 0s;
 	transition: background-color 100ms ease 0s;
 }
 #prev:hover, #next:hover {
+	color: rgba(255, 255, 255, 0.4);
 	background-color: rgba(0, 0, 0, 0.4);
 }
 #prev {
@@ -42,6 +47,21 @@
 }
 #next {
 	grid-column: 3/4;
+}
+
+.symbols {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+.icon {
+	margin: auto;
+
+	width: 128px;
+
+	color: currentColor;
 }
 
 .slideshow .img {
@@ -63,6 +83,7 @@
 	margin-top: auto;
 	padding: var(--small-spacing);
 
+	color: #FFF;
 	background-color: rgba(0, 0, 0, 0.6);
 
 	transition: opacity 600ms ease 0s;
@@ -93,7 +114,7 @@
 	background-image: url("../img/iStock_90237163_XLARGE.jpg");
 }
 #slide5 {
-	background-image: url("../img/headquarters.png");
+	background-image: url("../img/CMM-Inspection-of-Aerospace-Parts.jpg");
 }
 
 .split {
