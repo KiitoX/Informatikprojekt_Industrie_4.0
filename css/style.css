@@ -187,6 +187,10 @@ main {
 	box-shadow: 1px 0 0 rgba(12,13,14,0.1), 1px 0 3px rgba(12,13,14,0.1), 4px 0 20px rgba(12,13,14,0.035), 1px 0 1px rgba(12,13,14,0.025), -1px 0 0 rgba(12,13,14,0.1), -1px 0 3px rgba(12,13,14,0.1), -4px 0 20px rgba(12,13,14,0.035), -1px 0 1px rgba(12,13,14,0.025);
 }
 
+main a {
+	text-decoration: underline dotted;
+}
+
 section {
 	padding: var(--medium-spacing);
 
