@@ -23,9 +23,9 @@
 		<nav>
 			<div id="cookie-notice" class="hidden">
 				<div class="row">
-					<p>Blaah blah, cookies are used for: visitor counting <a href="">learn more</a></p>
-					<div class="link"><a id="accept-cn" href="#">accept</a></div>
-					<div class="link"><a id="reject-cn" href="#">reject</a></div>
+					<p>Cookies werden ausschließlich zur Benutzerzählung verwendet. <a href="">Details</a></p>
+					<div class="link"><a id="accept-cn" href="#">Erlauben</a></div>
+					<div class="link"><a id="reject-cn" href="#">Ablehnen</a></div>
 				</div>
 			</div>
 			<div class="row">
@@ -309,16 +309,14 @@
 
 		<footer>
 			<div class="row">
-				<div id="counter"><p><span>0</span> unique visitors</p></div>
+				<div id="counter"><p><span>0</span> Besucher</p></div>
 			</div>
 			<div class="row">
 				<div id="copyright"><p>&copy; Ikusaki Polytechnic Group</p></div>
-				<div class="link"><a href="#">AGB</a></div>
-				<div class="link"><a href="#">Nutzungsbedingungen</a></div>
-				<div class="link"><a href="#">Cookies</a></div>
-				<div class="link"><a href="#">Datenschutz</a></div>
-				<div class="link"><a href="#">Presse</a></div>
-				<div class="link"><a href="#">Kontakt</a></div>
+				<div class="link"><a href="termsofuse.html">Nutzungsbedingungen</a></div>
+				<div class="link"><a href="cookies.html">Cookies</a></div>
+				<div class="link"><a href="dataprotection.html">Datenschutz</a></div>
+				<div class="link"><a href="contact.html">Kontakt</a></div>
 				<div class="link"><a href="impressum.html">Impressum</a></div>
 			</div>
 		</footer>
