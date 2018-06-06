@@ -2,9 +2,10 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title>Impressum - Ikusaki</title>
+		<title>Kontakt - Ikusaki</title>
 		<link rel="stylesheet" type="text/css" href="css/reset.css" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/contact.css" />
 
 		<script src="https://cdn.jsdelivr.net/npm/js-cookie/src/js.cookie.min.js"></script>
 	    <script>
@@ -38,41 +39,16 @@
 
 		<main>
 			<section>
-				<h1>Impressum</h1>
+				<h1>Kontakt</h1>
 
-				<!-- https://de.wikipedia.org/wiki/Impressumspflicht -->
-				
-				<p class="padded bold">Zentrale</p>
-				
-				<img class="right" src="img/headquarters.png"/>
-				<p>
-				Ikusaki Polytechnic Group Deutschland GmbH<br />
-				Gutleutstraße 310<br />
-				60327 Frankfurt am Main<br />
-				Deutschland
-				</p>
-				<p class="padded">
-				contact@ikusaki.com
-				</p>
-				<p>
-				Tel. +49 68 155 6000<br />
-				Fax +49 69 155 7000
-				</p>
-				<hr />
-				
-				<p class="padded bold">Sitz der Gesellschaft</p>
-				<p>
-				Frankfurt am Main, Deutschland<br />
-				<!-- https://de.wikipedia.org/wiki/Handelsregister_(Deutschland)#Abteilungen -->
-				Handelsregister bei dem Amtsgericht:<br />
-				Amtsgericht Frankfurt am Main HRB 2114<br />
-				<!-- https://de.wikipedia.org/wiki/Elektro-_und_Elektronikger%C3%A4tegesetz#Registrierung -->
-				WEEE-Reg.-Nr. DE 22409254
-				</p>
-				<p class="padded">
-				<!-- https://de.wikipedia.org/wiki/Umsatzsteuer-Identifikationsnummer#Deutschland -->
-				Ust Idnr.: DE162140140<br />
-				</p>
+				<form>
+					<input type="text" placeholder="Vorname *" id="name" />
+					<input type="text" placeholder="Nachname *" id="surname" />
+					<input type="email" placeholder="E-Mail *" id="email" />
+					<input type="text" placeholder="Betreff" id="subject" />
+					<textarea id="message" placeholder="Ihre Nachricht *"></textarea>
+					<input type="submit" value="Nachricht absenden" id="submit" />
+				</form>
 			</section>
 		</main>
 
