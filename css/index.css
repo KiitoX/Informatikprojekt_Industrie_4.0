@@ -19,8 +19,6 @@
 
 	display: flex;
 
-	transform: translateX(
-		calc(15% - (var(--offset) * 70%)));
 	transition: transform 600ms ease 0s;
 }
 .slideshow .container.modifying {
@@ -70,6 +68,10 @@
 }
 
 @media screen and (min-width: 1200px) {
+	.slideshow .container {
+		transform: translateX(
+			calc((0.15 - var(--offset) * 0.7) * 1200px));
+	}
 	.slideshow .img {
 		min-width: calc(0.7 * 1200px);
 	}
@@ -79,6 +81,10 @@
 }
 
 @media screen and (max-width: 1200px) {
+	.slideshow .container {
+		transform: translateX(
+			calc(15vw - var(--offset) * 70vw));
+	}
 	.slideshow .img {
 		min-width: 70vw;
 	}
