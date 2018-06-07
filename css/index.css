@@ -124,7 +124,7 @@
 	color: #FFF;
 	background-color: rgba(0, 0, 0, 0.6);
 
-	transition: opacity 600ms ease 0s;
+	transition: opacity 600ms ease 0s, transform 400ms ease 0s;
 }
 
 .slideshow .img.active {
@@ -137,6 +137,7 @@
 
 .slideshow .img:not(.active) > p {
 	opacity: 0;
+	transform: translateY(60px);
 }
 
 #slide1 {
