@@ -108,7 +108,8 @@
 										}
 										if($free){
 											$output = "Ihr Termin wurde gebucht";
-											$sql = "INSERT INTO `l_booking_robot` (`ID`, `F_robot`, `F_user`, `start_date`, `end_date`) VALUES (NULL, '".$array["robotRent"]."', '1', '".$startDaySelect."', '".$endDaySelect."'";											
+											$sql = "INSERT INTO `l_booking_robot` (`ID`, `F_robot`, `F_user`, `start_date`, `end_date`) VALUES (NULL, '".$array["robotRent"]."', '1', '".$startDaySelect."', '".$endDaySelect."'";	
+											//($sql);
 										}else{
 											$output = "Der ausgewählte Termin ist belegt";
 										}
