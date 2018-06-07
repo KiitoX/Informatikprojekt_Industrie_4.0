@@ -5,7 +5,7 @@
 	grid-template-rows: 1fr;
 	grid-template-columns: 15fr 70fr 15fr;
 
-	overflow-x: hidden;
+	overflow: hidden;
 
 	margin: calc(-1 * var(--small-spacing)) 0;
 	padding: 0;
